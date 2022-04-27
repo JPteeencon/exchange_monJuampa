@@ -1,5 +1,7 @@
 import requests
 import time
+from datetime import datetime
+
 
 from currencydraw import currencydraw as dibuja_cotizaciones
 from userinput import exit_on_keypress as salir_al_pulsar
@@ -16,11 +18,16 @@ def cotizacion_de(moneda, moneda_ref):
 
 def muestra_cotizaciones():
     moneda_ref = 'USD'
+    moneda_ref2 = 'EUR'
     monedas = ['EUR', 'JPY', 'TND', 'RUB']
     buffer = []
+    now = datetime.now()
 
     for moneda in monedas:
         buffer.append(cotizacion_de(moneda, moneda_ref))
+        buffer.append(cotizacion_de(moneda, moneda_ref2))
+
+    buffer.append("Ultima hora de refresco: " + now.strftime("%y-%m-%d %H:%M:%S"))
 
     for i in range(300):
         dibuja_cotizaciones(buffer)

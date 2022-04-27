@@ -26,9 +26,9 @@ def currencydraw(input_buffer):
 
     def make_label():
         now = datetime.now()
-        current_time = now.strftime("%y-%m-%d %H:%M:%S")
+        cotizacion_time = now.strftime("%y-%m-%d %H:%M:%S")
 
-        return "Cotizacion de las: {hora}".format(hora=current_time)
+        return "Cotizacion de las: {hora}".format(hora=cotizacion_time)
 
     def make_output_buffer(input_buffer):
         def make_line(position=0, size=80):
